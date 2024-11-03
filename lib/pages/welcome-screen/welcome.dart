@@ -1,4 +1,4 @@
-import 'package:echoplay/pages/name-input-screen/name-screen.dart';
+import 'package:echoplay/pages/name-game-screen/name-game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -76,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NameInputScreen()),
+                            builder: (context) => const NameGameScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

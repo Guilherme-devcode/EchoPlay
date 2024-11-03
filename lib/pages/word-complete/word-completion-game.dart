@@ -13,7 +13,7 @@ class WordCompletionGameScreen extends StatefulWidget {
 }
 
 class _WordCompletionGameScreenState extends State<WordCompletionGameScreen> {
-  final String correctAnswer = "GUILHERME"; // Palavra correta
+  final String correctAnswer = "OVELHA"; // Palavra correta
   List<String> selectedLetters = [];
   List<String> keyboardLetters = [];
   List<int> missingLetterIndices = [];
