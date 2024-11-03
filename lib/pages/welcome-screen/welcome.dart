@@ -1,4 +1,4 @@
-import 'package:echoplay/pages/name-game-screen/name-game.dart';
+import 'package:echoplay/pages/letter-drawing-game-screen/letter-drawing-game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -76,7 +76,9 @@ class WelcomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NameGameScreen()),
+                            builder: (context) => const LetterDrawingGame(
+                                  character: 'Z',
+                                )),
                       );
                     },
                     style: ElevatedButton.styleFrom(
