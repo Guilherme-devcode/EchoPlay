@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
 
-import 'package:echoplay/pages/name-game-screen/name-game.dart';
 import 'package:echoplay/pages/welcome-screen/welcome.dart';
+import 'package:echoplay/pages/word-complete/word-completion-game.dart';
 import 'package:flutter/material.dart';
 
 class NameInputScreen extends StatefulWidget {
@@ -102,7 +102,8 @@ class _NameInputScreenState extends State<NameInputScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NameGameScreen()),
+                            builder: (context) =>
+                                const WordCompletionGameScreen()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
