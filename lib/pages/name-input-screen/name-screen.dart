@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
 
+import 'package:echoplay/pages/name-game-screen/name-game.dart';
 import 'package:echoplay/pages/welcome-screen/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class NameInputScreen extends StatefulWidget {
 }
 
 class _NameInputScreenState extends State<NameInputScreen> {
-  String name = "";
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,112 +80,30 @@ class _NameInputScreenState extends State<NameInputScreen> {
                         ),
                       ],
                     ),
-                    child: Text(
-                      name.padRight(5, "_").substring(0, 5),
+                    child: TextField(
+                      controller: _controller,
+                      maxLength: 30,
+                      decoration: const InputDecoration(
+                        counterText: "",
+                        hintText: "Digite seu nome",
+                        border: InputBorder.none,
+                      ),
                       style: const TextStyle(
-                        fontSize: 30,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        letterSpacing: 4,
+                        letterSpacing: 1,
                       ),
                       textAlign: TextAlign.center,
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    width: 300,
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 5,
-                        childAspectRatio: 1.5,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      itemCount: 26,
-                      itemBuilder: (context, index) {
-                        String letter = String.fromCharCode(65 + index);
-                        return ElevatedButton(
-                          onPressed: name.length < 5
-                              ? () {
-                                  setState(() {
-                                    name += letter;
-                                  });
-                                }
-                              : null,
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.black,
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: Text(
-                            letter,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: name.isNotEmpty
-                            ? () {
-                                setState(() {
-                                  name = name.substring(0, name.length - 1);
-                                });
-                              }
-                            : null,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Text(
-                          "Apagar",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 20),
-                      ElevatedButton(
-                        onPressed: name.isNotEmpty
-                            ? () {
-                                setState(() {
-                                  name = "";
-                                });
-                              }
-                            : null,
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        child: const Text(
-                          "Limpar tudo",
-                          style: TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      // Proceed with entered name
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const NameGameScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent,
@@ -195,7 +114,7 @@ class _NameInputScreenState extends State<NameInputScreen> {
                           vertical: 20, horizontal: 40),
                     ),
                     child: const Text(
-                      "Let's Play!",
+                      "Vamos Jogar!",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
