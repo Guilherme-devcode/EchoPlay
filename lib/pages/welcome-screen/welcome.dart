@@ -1,4 +1,4 @@
-import 'package:echoplay/pages/letter-drawing-game-screen/letter-drawing-game.dart';
+import 'package:echoplay/pages/group-identification-game-screen/group-identification-game.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -76,9 +76,8 @@ class WelcomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const LetterDrawingGame(
-                                  character: 'Z',
-                                )),
+                            builder: (context) =>
+                                const GroupIdentificationGame()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

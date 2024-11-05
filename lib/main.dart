@@ -3,7 +3,6 @@
 import 'package:echoplay/pages/welcome-screen/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 void main() {
   runApp(const EchoPlayApp());
@@ -36,28 +35,11 @@ class TelaInicial extends StatefulWidget {
 }
 
 class _TelaInicialState extends State<TelaInicial> {
-  final FlutterTts flutterTts = FlutterTts();
   List<dynamic> voices = [];
 
   @override
   void initState() {
     super.initState();
-    _configurarTTS();
-  }
-
-  Future _configurarTTS() async {
-    await flutterTts.setVoice(
-        {"name": "Microsoft Maria - Portuguese (Brazil)", "locale": "pt-BR"});
-    await flutterTts.setLanguage("pt-BR");
-    await flutterTts.setSpeechRate(1);
-    await flutterTts.setVolume(1.0);
-    await flutterTts.setPitch(1.0);
-    _narrarTexto('Bem-vindo ao EkoPlay! Toque em um botão para começar.');
-  }
-
-  Future _narrarTexto(String texto) async {
-    await flutterTts.stop();
-    await flutterTts.speak(texto);
   }
 
   void _vibrar() {
@@ -78,7 +60,6 @@ class _TelaInicialState extends State<TelaInicial> {
             ElevatedButton(
               onPressed: () {
                 _vibrar();
-                _narrarTexto('Iniciar Jogo');
               },
               style: ElevatedButton.styleFrom(
                 padding:
@@ -96,7 +77,6 @@ class _TelaInicialState extends State<TelaInicial> {
             ElevatedButton(
               onPressed: () {
                 _vibrar();
-                _narrarTexto('Instruções');
               },
               style: ElevatedButton.styleFrom(
                 padding:
@@ -114,7 +94,6 @@ class _TelaInicialState extends State<TelaInicial> {
             ElevatedButton(
               onPressed: () {
                 _vibrar();
-                _narrarTexto('Configurações');
               },
               style: ElevatedButton.styleFrom(
                 padding:

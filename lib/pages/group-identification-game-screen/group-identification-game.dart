@@ -1,5 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, file_names
 
+import 'package:echoplay/shared/primary-button/primary-button-component.dart';
+import 'package:echoplay/shared/secondary-button/secondary-button-component.dart';
 import 'package:flutter/material.dart';
 
 class GroupIdentificationGame extends StatefulWidget {
@@ -184,24 +186,25 @@ class _GroupIdentificationGameState extends State<GroupIdentificationGame> {
             ),
           ),
           const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: selectedItems.length == maxSelectableItems
-                    ? _checkAnswer
-                    : null,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: selectedItems.length == maxSelectableItems
-                      ? Colors.green
-                      : Colors.grey,
-                  foregroundColor: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                ),
-                child: const Text("Submit", style: TextStyle(fontSize: 18)),
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: PrimaryButton(
+              onPressed: selectedItems.length == maxSelectableItems
+                  ? _checkAnswer
+                  : null,
+              text: 'JOGAR!',
+              width: double.infinity,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SecondaryButton(
+              onPressed: selectedItems.length == maxSelectableItems
+                  ? _checkAnswer
+                  : null,
+              text: 'JOGAR!',
+              width: double.infinity,
+            ),
           ),
           const SizedBox(height: 20),
         ],
